@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to your Activity</title>
+
+
+    </head>
+    <style>
+    .form-container {
+  width: 400px;
+  height: auto;   
+  margin: 0 auto;
+ /* margin-top: 250px; */
+  background-color: #ecebf2;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  position: relative;
+  
+    }
+    .error {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            display: block;
+            margin: auto;
+            
+        }
+        input[type="number"] {
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 300px;
+        }
+        label {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="shortcut icon" href="../img/usf.png" type="image/x-icon">
+
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="navbar-left">
+                    <a class="zoom-image" href="../index.html"><img src="../img/usf.png" alt="Home Icon"></a>
+                    <a href="../index.html">Analyser</a>
+                    <a href="../html/vision.html">Vision</a>
+                    <a href="../html/blog.html">Blog</a>
+                    <a href="../html/aboutus.html">About Us</a>
+             </div>
+                    <div class="navbar-right">
+                        <a href="../index.html">Log out</a>
+                    
+                    </div>
+            </nav>
+
+        </header>
+        
+        <div style="text-align: center;">
+
+            <button id="enterActivity" >Enter Activity</button>
+
+        </div>
+
+        
+        <div class="form-container">
+            <h3>Please eneter your daily activity in Hours</h3>
+            <form id="my-form" >
+                <div class="form-field">
+                    <label for ="date">Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div> <br>
+                
+                <div class="form-field">
+                    <label for="study">Study:</label>
+                    <input type="number" id="study" name="study" required min="0" max="24">
+                    <div class="error" id="study-error"></div>
+
+                </div>
+              
+                <div class="form-field">
+                    <label for="gym">Gym:</label>
+                    <input type="number" id="gym" name="gym" required min="0" max="24">
+                    <div class="error" id="gym-error"></div>
+
+                </div>
+
+                <div class="form-field">
+                    <label for="sleep">Sleep:</label>
+                    <input type="number" id="sleep" name="sleep" required  min="0" max="24">
+                    <div class="error" id="sleep-error"></div>
+                </div>
+                
+                <div class="form-field">
+                    <label for="entertainment">Entertainment:</label>
+                    <input type="number" id="entertainment" name="entertainment" required min="0" max="24">
+                    <div class="error" id="entertainment-error"></div>
+                </div>
+                
+               <div class="form-field">
+                <label for="socialmedia">Social Media:</label>
+                <input type="number" id="socialmedia" name="socialmedia" required min="0" max="24">
+                <div class="error" id="socialmedia-error"></div>
+
+               </div>
+                
+                
+               <div class="form-field">
+                <label for="miscellaneous">Miscellaneous:</label>
+                <input type="number" id="miscellaneous" name="miscellaneous" required min="0" max="24">
+                <div class="error" id="miscellaneous-error"></div>
+               </div>
+                
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+     
+
+        <script>
+            function startGame(){
+                console.log("Start game fuction called ")
+
+                 // Get the button and form elements
+            const loadFormButton = document.querySelector('#enterActivity');
+            const myForm = document.querySelector('#my-form');
+
+          // Attach event listener for button click
+            loadFormButton.addEventListener('click', function(event) {
+            // Show the form
+            myForm.style.display = 'block';
+            // Hide the button
+            loadFormButton.style.display = 'none';
+
+            //formContainer.style.display= 'block';
+            //loadFormButton.style.display = 'none';
+         });
+
+         // Attach event listener for form submission
+         myForm.addEventListener('submit', function(event) {
+            // Prevent the form from submitting
+            event.preventDefault();
+
+                   // Get the form fields and error elements
+            const studyField = document.querySelector('#study');
+            const studyError = document.querySelector('#study-error');
+            const gymField = document.querySelector('#gym');
+            const gymError = document.querySelector('#gym-error');
+            const sleepField = document.querySelector('#sleep');
+            const sleepError = document.querySelector('#sleep-error');
+            const entertainmentField = document.querySelector('#entertainment');
+            const entertainmentError = document.querySelector('#entertainment-error');
+            const miscellaneousField = document.querySelector('#miscellaneous');
+            const miscellaneousError = document.querySelector('#miscellaneous-error');
+
+              // Validate the study field
+              if (studyField.checkValidity() === false) {
+                studyError.innerHTML = studyField.validationMessage || 'Enter Numerics only between 0-24'
+                studyField.focus();
+                return false;
+             } else {
+                studyError.innerHTML = '';
+             }
+                // Validate the gym field
+              if (gymField.checkValidity() === false) {
+                gymError.innerHTML = gymField.validationMessage || 'Enter Numerics only between 0-24'
+                gymField.focus();
+                return false;
+             } else {
+                gymError.innerHTML = '';
+             }
+
+               // Validate the sleep field
+               if (sleepField.checkValidity() === false) {
+                sleepError.innerHTML = sleepField.validationMessage || 'Enter Numerics only between 0-24'
+                sleepField.focus();
+                return false;
+             } else {
+                sleepError.innerHTML = '';
+             }
+
+               // Validate the entertainment field
+               if (entertainmentField.checkValidity() === false) {
+                entertainmentError.innerHTML = entertainmentField.validationMessage || 'Enter Numerics only between 0-24'
+                entertainmentField.focus();
+                return false;
+             } else {
+                entertainmentError.innerHTML = '';
+             }
+
+               // Validate the miscellaneous field
+               if (miscellaneousField.checkValidity() === false) {
+                miscellaneousError.innerHTML = miscellaneousField.validationMessage || 'Enter Numerics only between 0-24'
+                miscellaneousField.focus();
+                return false;
+             } else {
+                miscellaneousError.innerHTML = '';
+             }
+
+              // If all fields are valid, submit the form
+                alert(' submitted successfully!');
+                 });
+
+
+            }
+        
+             
+
+        </script>
+
+    </body>
+
+
+
+
+
+
+</html>

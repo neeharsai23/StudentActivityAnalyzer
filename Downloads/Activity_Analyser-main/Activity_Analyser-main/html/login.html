@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html><head>
+	<title>Login</title>
+    <style>
+
+.container {
+  width: 400px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: black;
+  text-align: left;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:active {
+  background-color: #3e8e41;
+}
+
+    </style>
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="shortcut icon" href="../img/usf.png" type="image/x-icon">
+</head>
+<body>
+	<header>
+		<nav class="navbar">
+			<div class="navbar-left">
+				<a class="zoom-image" href="../index.html"><img src="../img/usf.png" alt="Home Icon"></a>
+                <a href="../index.html">Analyser</a>
+				<a href="../html/vision.html">Vision</a>
+				<a href="../html/blog.html">Blog</a>
+				<a href="../html/aboutus.html">About Us</a>
+			</div>
+			<div class="navbar-right">
+				<a href="../html/signup.html">Sign Up</a>
+				<a href="../html/login.html">Login</a>
+			</div>
+		</nav>
+		<div class="hero-image">
+			<div class="hero-text">
+				<div class="container">
+                    <form>
+                      <label for="username">Username</label>
+                      <input type="text" id="username" name="username" required="">
+                      <br>
+                      <label for="password">Password</label>
+                      <input type="password" id="password" name="password" required="">
+                      <button type="submit">Login</button>
+                      <br>
+                      <br>
+                      <a href="../html/signup.html">Sign Up</a>
+                    </form>
+                  </div>
+			</div>
+		</div>
+	</header>
+</body></html>
